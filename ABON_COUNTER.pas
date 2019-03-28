@@ -1,4 +1,4 @@
-unit ABON_COUNTER;
+п»їunit ABON_COUNTER;
 
 interface
 
@@ -163,11 +163,11 @@ end;
 
 procedure TfrABON_COUNTER.actNASTRExecute(Sender: TObject);
 begin
-if ( MessageDlg('Вы действительно хотите установить настройки таблицы по умолчанию  ?',
+if ( MessageDlg('Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ СѓСЃС‚Р°РЅРѕРІРёС‚СЊ РЅР°СЃС‚СЂРѕР№РєРё С‚Р°Р±Р»РёС†С‹ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ  ?',
 			mtConfirmation,[mbYes,mbNo],0)=mrYes)then
       begin
       DeleteFile(PAnsiChar(AnsiString(ProgPath+'abon_counter.ini')));
-      ShowMessage('Перезапустите форму');  
+      ShowMessage('РџРµСЂРµР·Р°РїСѓСЃС‚РёС‚Рµ С„РѕСЂРјСѓ');  
       end;
 end;
 
@@ -198,7 +198,7 @@ procedure TfrABON_COUNTER.actPO_NOMExecute(Sender: TObject);
 var
 NOM_ABON:string;
 begin
-NOM_ABON:=InputBox('Ввод данных', 'Введите заводской номер счетчика', '');
+NOM_ABON:=InputBox('Р’РІРѕРґ РґР°РЅРЅС‹С…', 'Р’РІРµРґРёС‚Рµ Р·Р°РІРѕРґСЃРєРѕР№ РЅРѕРјРµСЂ СЃС‡РµС‚С‡РёРєР°', '');
 cxSCHDBTableView1.DataController.Filter.Clear;
 cxSCHDBTableView1.DataController.Filter.AddItem(nil,cxNOM_ABON,foEqual,NOM_ABON,NOM_ABON);
 cxSCHDBTableView1.DataController.Filter.Active:=True;
@@ -208,7 +208,7 @@ procedure TfrABON_COUNTER.actPO_NOM_PLOMBExecute(Sender: TObject);
 var
 NOM_PLOMB:string;
 begin
-NOM_PLOMB:=InputBox('Ввод данных', 'Введите заводской номер пломбы', '');
+NOM_PLOMB:=InputBox('Р’РІРѕРґ РґР°РЅРЅС‹С…', 'Р’РІРµРґРёС‚Рµ Р·Р°РІРѕРґСЃРєРѕР№ РЅРѕРјРµСЂ РїР»РѕРјР±С‹', '');
 cxSCHDBTableView1.DataController.Filter.Clear;
 cxSCHDBTableView1.DataController.Filter.AddItem(nil,cxPLOMB,foEqual,NOM_PLOMB,NOM_PLOMB);
 cxSCHDBTableView1.DataController.Filter.Active:=True;
@@ -218,7 +218,7 @@ procedure TfrABON_COUNTER.actPO_ZAV_NOMExecute(Sender: TObject);
 var
 ZAV_NOM:string;
 begin
-ZAV_NOM:=InputBox('Ввод данных', 'Введите заводской номер счетчика', '');
+ZAV_NOM:=InputBox('Р’РІРѕРґ РґР°РЅРЅС‹С…', 'Р’РІРµРґРёС‚Рµ Р·Р°РІРѕРґСЃРєРѕР№ РЅРѕРјРµСЂ СЃС‡РµС‚С‡РёРєР°', '');
 cxSCHDBTableView1.DataController.Filter.Clear;
 cxSCHDBTableView1.DataController.Filter.AddItem(nil,cxZAV_NOM,foEqual,ZAV_NOM,ZAV_NOM);
 cxSCHDBTableView1.DataController.Filter.Active:=True;
@@ -250,14 +250,14 @@ i,j,KOD_PRIB,nom_abon,VID_PODV,IZGOTOV,GOD_VIP:Integer;
 ZAV_NOM,SOOB:string;
 Dlina:Real;
 begin
-  if (STAT=2) then //--при добавлении
+  if (STAT=2) then //--РїСЂРё РґРѕР±Р°РІР»РµРЅРёРё
   begin
     frADD_PODVODKA:=TfrADD_PODVODKA.Create(Owner);
     try
     if frADD_PODVODKA.ShowModal = mrOk then
     begin
-      if (STAT=2) then  SOOB:='Внести данные по подводке ?';
-      if (STAT=1) then  SOOB:='Удалить данные по подводке ?';
+      if (STAT=2) then  SOOB:='Р’РЅРµСЃС‚Рё РґР°РЅРЅС‹Рµ РїРѕ РїРѕРґРІРѕРґРєРµ ?';
+      if (STAT=1) then  SOOB:='РЈРґР°Р»РёС‚СЊ РґР°РЅРЅС‹Рµ РїРѕ РїРѕРґРІРѕРґРєРµ ?';
 
       if ( MessageDlg(SOOB,mtConfirmation,[mbYes,mbNo],0)=mrNo) then
       begin
@@ -266,7 +266,7 @@ begin
 
       if (frADD_PODVODKA.cbVID.Text='') then
       begin
-        ShowMessage('Вы не указали вид подводки!');
+        ShowMessage('Р’С‹ РЅРµ СѓРєР°Р·Р°Р»Рё РІРёРґ РїРѕРґРІРѕРґРєРё!');
         Exit;
       end;
 
@@ -274,18 +274,18 @@ begin
       begin
           if (frADD_PODVODKA.cbIZGOTOV.Text='') then
           begin
-            ShowMessage('Вы не указали изготовителя!');
+            ShowMessage('Р’С‹ РЅРµ СѓРєР°Р·Р°Р»Рё РёР·РіРѕС‚РѕРІРёС‚РµР»СЏ!');
             Exit;
           end;
           if (frADD_PODVODKA.cbGOD.Text='') then
           begin
-            ShowMessage('Вы не указали год выпуска!');
+            ShowMessage('Р’С‹ РЅРµ СѓРєР°Р·Р°Р»Рё РіРѕРґ РІС‹РїСѓСЃРєР°!');
             Exit;
           end;
 
           if (frADD_PODVODKA.cbDLINA.Text='') then
           begin
-            ShowMessage('Вы не указали длину подводки!');
+            ShowMessage('Р’С‹ РЅРµ СѓРєР°Р·Р°Р»Рё РґР»РёРЅСѓ РїРѕРґРІРѕРґРєРё!');
             Exit;
           end;
       end;
@@ -320,7 +320,7 @@ begin
     end; 
   end;
 
-  ShowWaitDialog('Формирование', 'Формирование списка', False);
+  ShowWaitDialog('Р¤РѕСЂРјРёСЂРѕРІР°РЅРёРµ', 'Р¤РѕСЂРјРёСЂРѕРІР°РЅРёРµ СЃРїРёСЃРєР°', False);
 
   for i := 0 to cxSCHDBTableView1.Controller.SelectedRecordCount - 1 do
   begin
@@ -330,7 +330,7 @@ begin
   ZAV_NOM:=cxSCHDBTableView1.DataController.Values[j, 15];
     with dmOne.ibIBSQL_DOP do
     begin
-       UpdateCaption('Лицевой - '+inttostr(NOM_ABON));
+       UpdateCaption('Р›РёС†РµРІРѕР№ - '+inttostr(NOM_ABON));
        SQL.Text:='execute procedure add_podvodka(:nom_abon,:tip_prib,:kod_prib,:zav_nom,:kod_podv,:dlina,:god)';
        ParamByName('nom_abon').asInteger:=NOM_ABON;
        ParamByName('tip_prib').asInteger:=1;
@@ -339,12 +339,12 @@ begin
        ParamByName('dlina').AsFloat:=Dlina;
        ParamByName('GOD').asInteger:=GOD_VIP;
 
-       if (STAT=1) then  //удалить
+       if (STAT=1) then  //СѓРґР°Р»РёС‚СЊ
        begin
        ParamByName('kod_podv').asInteger:=0;
        end;
 
-       if (STAT=2) then  //добавить
+       if (STAT=2) then  //РґРѕР±Р°РІРёС‚СЊ
        begin
           if (VID_PODV=1) then
           begin
@@ -360,9 +360,9 @@ begin
     HideWaitDialog;
   end;
 
-  MessageDlg('Выполнено!', mtInformation,[mbOK] ,0);
+  MessageDlg('Р’С‹РїРѕР»РЅРµРЅРѕ!', mtInformation,[mbOK] ,0);
 
-  if ( MessageDlg('Обновить данные в таблице ?',
+  if ( MessageDlg('РћР±РЅРѕРІРёС‚СЊ РґР°РЅРЅС‹Рµ РІ С‚Р°Р±Р»РёС†Рµ ?',
 			 mtConfirmation,[mbYes,mbNo],0)=mrYes) then
 		begin
     dsetSCH.Close;
@@ -376,14 +376,14 @@ N_STAT:String;
 begin
 if (STAT=0) then
 begin
-N_STAT:='родной счетчик';
+N_STAT:='СЂРѕРґРЅРѕР№ СЃС‡РµС‚С‡РёРє';
 end;
 if (STAT=1) then
 begin
-N_STAT:='счетчик обм.фонда';
+N_STAT:='СЃС‡РµС‚С‡РёРє РѕР±Рј.С„РѕРЅРґР°';
 end;
 
-if ( MessageDlg('Вы действительно хотите установить сатус счетчика - '+N_STAT+' ?',
+if ( MessageDlg('Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ СѓСЃС‚Р°РЅРѕРІРёС‚СЊ СЃР°С‚СѓСЃ СЃС‡РµС‚С‡РёРєР° - '+N_STAT+' ?',
 			mtConfirmation,[mbYes,mbNo],0)=mrYes)then begin
    			try
         with ibIZM_STAT do
@@ -395,10 +395,10 @@ if ( MessageDlg('Вы действительно хотите установить сатус счетчика - '+N_STAT+' 
         ParamByName('id').AsInteger:=dmProc.dsetF_PRIB.FieldByName('id_prib').AsInteger;
         ParamByName('KOD_OP').AsInteger:=KOD_OP;
         Execute;
-        ShowMessage('Изменения сохранены!!');
+        ShowMessage('РР·РјРµРЅРµРЅРёСЏ СЃРѕС…СЂР°РЅРµРЅС‹!!');
         end;
 			except on E:Exception do
-				ShowError('Ошибка','Ошибка при сохранении! ',E.Message,1);
+				ShowError('РћС€РёР±РєР°','РћС€РёР±РєР° РїСЂРё СЃРѕС…СЂР°РЅРµРЅРёРё! ',E.Message,1);
 			end;
 		end;
 end;
@@ -423,10 +423,10 @@ end;
 
 procedure TfrABON_COUNTER.btIN_EXCELClick(Sender: TObject);
 begin
- ExportGridToExcel(ProgPath + 'Отчет.xls',
+ ExportGridToExcel(ProgPath + 'РћС‚С‡РµС‚.xls',
  sgSCHETHIK, False, True, True);
 
-ShellExecute(handle,'open',PChar(ProgPath+ 'Отчет.xls'),nil,nil,SW_SHOWNORMAL);
+ShellExecute(handle,'open',PChar(ProgPath+ 'РћС‚С‡РµС‚.xls'),nil,nil,SW_SHOWNORMAL);
 end;
 
 procedure TfrABON_COUNTER.btPOVERKAClick(Sender: TObject);
@@ -502,8 +502,8 @@ begin
   frDOP_NAR_ZAD.dsetTMP_NZ.SQL.Text:='select S.NOM_ABON, t.NOM_NZ, S.FIO, S.KOD_PUNKT, SP.NAI_PUNKT, S.KOD_VU,' + #13#10 +
   'VU.NAI_VU, S.KOD_UL, UL.NAI_UL, S.KORPUS, s.DOM, s.dom2, S.KB, s.kod_trf,' + #13#10 +
   '(select k.naim_kod from klsfct k where k.kod=1 and k.kod_hc=s.priz) as vid_rash,'+
-  'iif(coalesce(s.pr_gw,0)=1,''c.гор.вод.'',''без.гор.вод.'') as GOR_VOD,' + #13#10 +
-  'iif(s.kod_geu in (1002,2001),''Ч/С'',''многоэтажка'') as MNOG, sa.obozn, s.date_sver, s.kol_kotl, s.pok_akt, ' + #13#10 +
+  'iif(coalesce(s.pr_gw,0)=1,''c.РіРѕСЂ.РІРѕРґ.'',''Р±РµР·.РіРѕСЂ.РІРѕРґ.'') as GOR_VOD,' + #13#10 +
+  'iif(s.kod_geu in (1002,2001),''Р§/РЎ'',''РјРЅРѕРіРѕСЌС‚Р°Р¶РєР°'') as MNOG, sa.obozn, s.date_sver, s.kol_kotl, s.pok_akt, ' + #13#10 +
   's.KOL_JIL, s.KWMETR, '+ #13#10 +
   '(select first 1 sh.plomb_sh_meh from shethik sh where sh.nom_abon=s.nom_abon and coalesce(sh.stat_omb_f,0)=0 AND ((coalesce(SH.pr_zamena,0)=0) or (coalesce(SH.pr_zamena,0)=3))) as plomb_sh_meh '+ #13#10 +
   'from TMP_ZAD_KONTR t,spr_abon s, SP_PUNKT SP,SP_VU VU,SP_UL UL, f_dom f, sp_adres sa' + #13#10 +
@@ -535,13 +535,13 @@ procedure TfrABON_COUNTER.N10Click(Sender: TObject);
 begin
   try
     dmProc.GURNAL_IZM(dsetSCH.FieldByName('NOM_ABON').AsInteger,'shethik',
-    'удаление счетчика '+dsetSCH.FieldByName('MARKA').AsString+' '+
+    'СѓРґР°Р»РµРЅРёРµ СЃС‡РµС‚С‡РёРєР° '+dsetSCH.FieldByName('MARKA').AsString+' '+
     dsetSCH.FieldByName('MODEL').AsString,
-    'удаление счетчика '+dsetSCH.FieldByName('MARKA').AsString+' '+
+    'СѓРґР°Р»РµРЅРёРµ СЃС‡РµС‚С‡РёРєР° '+dsetSCH.FieldByName('MARKA').AsString+' '+
     dsetSCH.FieldByName('MODEL').AsString);
     dsetSCH.Delete;
   except on E:Exception do
-    ShowError('Ошибка','Ошибка при удалении записи в таблице shethik!',E.Message,1);
+    ShowError('РћС€РёР±РєР°','РћС€РёР±РєР° РїСЂРё СѓРґР°Р»РµРЅРёРё Р·Р°РїРёСЃРё РІ С‚Р°Р±Р»РёС†Рµ shethik!',E.Message,1);
   end;
 
 end;
